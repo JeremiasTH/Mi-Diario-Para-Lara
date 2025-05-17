@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi amor, Lara</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    .timer {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      color: #fddbc2;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .comment-box {
+      background: rgba(255, 245, 235, 0.9);
+      color: #4a2c2a;
+      border: 2px solid #d6b8a1;
+      padding: 25px;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .comment-box p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Te amo, Lara</h1>
+  <div class="timer" id="timer">Cargando tiempo juntos...</div>
+
+  <div class="comment-box">
+    <p>"No importa la distancia, siempre te amaré,<br>
+    aunque estés tan lejos como la luna<br>
+    y a la vez tan bella como ella."</p>
+  </div>
+
+  <script>
+    function updateTimer() {
+      const start = new Date('2025-01-21T00:00:00');
+      const now   = new Date();
+      let diff = Math.max(0, now - start);
+      const days    = Math.floor(diff / (1000*60*60*24));
+      diff %= (1000*60*60*24);
+      const hours   = Math.floor(diff / (1000*60*60));
+      diff %= (1000*60*60);
+      const minutes = Math.floor(diff / (1000*60));
+      const seconds = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('timer').textContent =
+        `Llevamos juntos: ${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos.`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+
+</body>
+</html>
